@@ -1,7 +1,6 @@
 package io.recontool.service;
 
 import java.util.List;
-
 import io.recontool.model.Trade;
 
 public interface TradeService {
@@ -16,4 +15,5 @@ public interface TradeService {
 	
 	public Trade getTradeByNb(int nb);
 	
+	public List<Trade> getTradeByUserId(int userId);
 }

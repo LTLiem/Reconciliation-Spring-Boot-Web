@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -49,6 +48,16 @@ public class Issue implements Serializable {
 	@Column(name = "input_date")
 	private Date inputDate;
 
+	@Column(name = "status")
+	private String status;
+
+	// Join column: mapping data from issue to user
+	//@JoinColumn(name = "user", referencedColumnName = "user_id")
+	//@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	
+	@Column(name = "user")
+	private int userId;
+
 	@ManyToMany(mappedBy = "issueList", fetch = FetchType.EAGER)
 	List<Trade> tradeList = new ArrayList<Trade>();
 
@@ -57,7 +66,7 @@ public class Issue implements Serializable {
 	}
 
 	public Issue(int issueId, String field, String report, String sqlFilter, String correctSource, String differentType,
-			String explanation, String fieldValue, Date inputDate) {
+			String explanation, String fieldValue, Date inputDate, String status, int userId) {
 		super();
 		this.issueId = issueId;
 		this.field = field;
@@ -68,6 +77,8 @@ public class Issue implements Serializable {
 		this.explanation = explanation;
 		this.fieldValue = fieldValue;
 		this.inputDate = inputDate;
+		this.status = status;
+		this.userId = userId;
 	}
 
 	public int getIssueId() {
@@ -149,4 +160,21 @@ public class Issue implements Serializable {
 	public void setTradeList(List<Trade> tradeList) {
 		this.tradeList = tradeList;
 	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public int getUser() {
+		return userId;
+	}
+
+	public void setUser(int userId) {
+		this.userId = userId;
+	}
+
 }

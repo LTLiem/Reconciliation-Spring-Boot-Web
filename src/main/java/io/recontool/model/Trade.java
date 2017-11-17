@@ -51,6 +51,13 @@ public class Trade implements Serializable {
 	@Column(name = "input_date")
 	private Date inputDate;
 
+	// Join column: mapping data from trade to user
+	//@JoinColumn(name = "user", referencedColumnName = "user_id")
+	//@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	
+	@Column(name = "user")
+	private int userId;
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "trade_issue", joinColumns = @JoinColumn(name = "trade_nb"), inverseJoinColumns = @JoinColumn(name = "issue_id"))
 	List<Issue> issueList = new ArrayList<Issue>();
@@ -60,7 +67,7 @@ public class Trade implements Serializable {
 	}
 
 	public Trade(String tradeNb, String instrument, String currency, String portfolio, TradeHeader tradeHeader,
-			String trnStatus, Date inputDate) {
+			String trnStatus, Date inputDate, int userId) {
 		super();
 		this.tradeNb = tradeNb;
 		this.instrument = instrument;
@@ -69,6 +76,7 @@ public class Trade implements Serializable {
 		this.tradeHeader = tradeHeader;
 		this.trnStatus = trnStatus;
 		this.inputDate = inputDate;
+		this.userId = userId;
 	}
 
 	public String getTradeNb() {
@@ -133,6 +141,14 @@ public class Trade implements Serializable {
 
 	public void setIssueList(List<Issue> issueList) {
 		this.issueList = issueList;
+	}
+
+	public int getUser() {
+		return userId;
+	}
+
+	public void setUser(int userId) {
+		this.userId = userId;
 	}
 
 }

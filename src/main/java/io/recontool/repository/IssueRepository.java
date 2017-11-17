@@ -1,8 +1,10 @@
 package io.recontool.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
 
-import io.recontool.model.Issue;;
+import org.springframework.data.repository.CrudRepository;
+import io.recontool.model.Issue;
+
 
 /**
  * 
@@ -11,4 +13,5 @@ import io.recontool.model.Issue;;
  */
 public interface IssueRepository extends CrudRepository<Issue, Integer> {
 	
+	public List<Issue> findByUserId(int userId);
 }
