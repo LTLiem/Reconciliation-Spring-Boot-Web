@@ -6,12 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.recontool.service.IssueService;
+import io.recontool.service.RoleService;
 
 @Controller
 public class WebController {
 
 	@Autowired
-	private IssueService issueService;
+	private RoleService roleService;
 	
 	@RequestMapping("/")
 	String home() {
@@ -20,7 +21,7 @@ public class WebController {
 	
 	@RequestMapping("/sample")
 	String sample(Model model) {
-		model.addAttribute("issue", issueService.getIssueById(1));
+		model.addAttribute("issue", roleService.getRoleByName("Admin"));
 		return "sample";
 	}
 }

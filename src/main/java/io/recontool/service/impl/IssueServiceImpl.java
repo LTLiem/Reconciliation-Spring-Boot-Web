@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import io.recontool.model.Issue;
 import io.recontool.repository.IssueRepository;
 import io.recontool.service.IssueService;
@@ -37,6 +36,10 @@ public class IssueServiceImpl implements IssueService {
 
 	public Issue getIssueById(int id) {
 		return issueRepository.findOne(id);
+	}
+	
+	public List<Issue> getIssueByUserId(int userId) {
+		return issueRepository.findByUserId(userId);
 	}
 
 }

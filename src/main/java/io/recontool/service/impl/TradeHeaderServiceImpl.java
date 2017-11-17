@@ -2,14 +2,12 @@ package io.recontool.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import io.recontool.model.TradeHeader;
 import io.recontool.model.TradeHeaderKey;
 import io.recontool.repository.TradeHeaderRepository;
 import io.recontool.service.TradeHeaderService;
-;
 
 @Service("TradeHeaderService")
 public class TradeHeaderServiceImpl implements TradeHeaderService {

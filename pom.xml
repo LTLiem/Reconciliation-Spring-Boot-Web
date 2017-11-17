@@ -6,7 +6,6 @@
 	<groupId>io.recontool</groupId>
 	<artifactId>Reconciliation-Web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 
 	<name>Reconciliation-Spring-Boot-2</name>
 	<description>Spring Boot Reconciliation</description>
